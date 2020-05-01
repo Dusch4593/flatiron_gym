@@ -1,0 +1,16 @@
+<a href="/users/home">Home</a> > <a href="/routines">Routines</a> > <a href="/routines/<%= @routine.id %>"><%= @routine.name %></a> > <%= @exercise.name %>
+
+<h1><%= @exercise.name %></h1>
+
+<strong>Exercise Type: </strong><%= @exercise.exercise_type %> <br>
+<strong>Description: </strong><%= @exercise.description %> <br>
+
+<strong>Sets: </strong><%= @exercise.sets %> <br>
+<strong>Reps: </strong><%= @exercise.sets %> <br>
+
+
+
+<form action="/routines/<%= @exercise.routine_id %>">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Exercise">
+</form>

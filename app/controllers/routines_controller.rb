@@ -6,6 +6,9 @@ class RoutinesController < ApplicationController
 
   get '/routines/new' do
     @exercises = Exercise.all
+    @exercises = @exercises.each { |e| e.name.downcase.strip }
+                           .uniq! { |e| e.name }
+                           .each { |e| e.name.capitalize! }
     erb :"routines/new"
   end
 
@@ -20,7 +23,16 @@ class RoutinesController < ApplicationController
 
   get '/routines/:id' do
     @routine = Routine.find_by_id(params[:id])
+    @exercises = @routine.exercises
     erb :"routines/show"
+  end
+
+  get '/routines/:id/edit' do
+    binding.pry
+  end
+
+  patch '/routines' do
+
   end
 
   delete '/routines/:id' do

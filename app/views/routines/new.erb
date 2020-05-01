@@ -10,10 +10,11 @@
 
   <h3>Enter Exercise Information</h3>
   Add an Existing Exercise?
+  <br>
   <% @exercises.each do |exercise| %>
     <input type="checkbox" id="<%= exercise.id %>"name="routine[exercise_ids][]"value="<%= exercise.id %>">
            <%= exercise.name %>
-    </input>
+    </input><br>
   <% end %>
   <br>
   <br>
