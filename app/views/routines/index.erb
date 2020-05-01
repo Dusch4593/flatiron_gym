@@ -1,0 +1,12 @@
+
+<a href="/users/home">Home</a> > Routines
+
+<h1>Routines for <%= current_user.name %></h1>
+
+<% if current_user.routines.empty? %>
+  <strong>No Routines Created Yet!</strong>
+<% end %>
+
+<br>
+
+<a href="/routines/new">Create Routine</a>

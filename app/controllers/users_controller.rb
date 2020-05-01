@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   post '/users' do
     @user = User.new(name: params[:name], email: params[:email], password: params[:password])
     if @user.save
-      binding.pry
       session[:user_id] = @user.id
       redirect '/users/home'
     else
