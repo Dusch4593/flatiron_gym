@@ -1,10 +1,10 @@
-<a href="/users/home">Home</a> > Routines
-
-<h1>Routines for <%= current_user.name %></h1>
-
 <% if current_user.routines.empty? %>
   <strong>No Routines Created Yet!</strong>
 <% end %>
+
+<a href="/users/home">Home</a> > Routines
+
+<h1>Routines for <%= current_user.name %></h1>
 
 <% @routines.each do |routine| %>
   <a href="/routines/<%= routine.id %>"><%= routine.name %></a><br>

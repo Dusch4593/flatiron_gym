@@ -2,6 +2,10 @@
 
 <h1><%= @routine.name %></h1>
 
+<strong>Times per Week: </strong><%= @routine.times_per_week %>
+
+<br><br>
+
 <h3>List of Exercises</h3>
 <% @exercises.each do |exercise| %>
   <a href="/exercises/<%= exercise.id %>"><%= exercise.name %></a><br>

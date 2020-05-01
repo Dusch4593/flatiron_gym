@@ -1,7 +1,11 @@
 class RoutinesController < ApplicationController
   get '/routines' do
-    @routines = current_user.routines
-    erb :"routines/index"
+    if is_logged_in?
+      @routines = current_user.routines
+      erb :"routines/index"
+    else
+      redirect '/login'
+    end
   end
 
   get '/routines/new' do
@@ -36,8 +40,8 @@ class RoutinesController < ApplicationController
   end
 
   delete '/routines/:id' do
-    @routine = Routine.find_by_id(params[:id])
-    @routine.destroy
-    redirect '/routines'
+      @routine = Routine.find_by_id(params[:id])
+      @routine.destroy
+      redirect '/routines'
   end
 end
