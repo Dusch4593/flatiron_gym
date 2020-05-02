@@ -12,7 +12,7 @@
   Add an Existing Exercise?
   <br>
   <% @exercises.each do |exercise| %>
-    <input type="checkbox" id="<%= exercise.id %>"name="routine[exercise_ids][]"value="<%= exercise.id %>">
+    <input type="checkbox" id="<%= exercise.id %>"name="exercise_ids[]"value="<%= exercise.id %>">
            <%= exercise.name %>
     </input><br>
   <% end %>

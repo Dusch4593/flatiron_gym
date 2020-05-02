@@ -12,7 +12,7 @@
 <a href="/exercises/<%= @exercise.id %>/edit">Edit Exercise</a>
 
 
-<form action="/routines/<%= @exercise.routine_id %>">
+<form action="/exercises/<%= @exercise.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Exercise">
 </form>

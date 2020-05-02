@@ -22,8 +22,21 @@ class ExercisesController < ApplicationController
     if current_user.id == @routine.user_id && @exercise.update(name: params[:name], exercise_type: params[:exercise_type], description: params[:description], sets: params[:sets], reps: params[:reps])
       redirect "/exercises/#{@exercise.id}"
     else
-      binding.pry
+      #binding.pry
       redirect "/exercises/#{@exercise.id}"
+    end
+  end
+
+  delete '/exercises/:id' do
+    if is_logged_in?
+      @exercise = Exercise.find_by_id(params[:id])
+      binding.pry
+      @routine = Routine.find_by_id(@exercise.routine_id)
+      @exercise.destroy
+      #binding.pry
+      redirect "/routines/#{@routine.id}"
+    else
+      redirect '/login'
     end
   end
 end
