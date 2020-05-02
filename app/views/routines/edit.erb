@@ -4,8 +4,8 @@
 
 <form action="/routines/<%= @routine.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  Name: <input type="text" name="name" value="<%= @routine.name %>"><br>
-  Times per Week: <input type="text" name="times_per_week" value="<%= @routine.times_per_week %>"><br>
+  Name: <input type="text" name="name" value="<%= @routine.name %>" required><br>
+  Times per Week: <input type="number" name="times_per_week" value="<%= @routine.times_per_week %>" min=0><br>
 
   <h3>Edit Exercise Information</h3>
   Add an Existing Exercise?
@@ -22,8 +22,8 @@
   Name: <input type="text" name="exercises[][name]"><br>
   Exercise Type: <input type="text" name="exercises[][exercise_type]"><br>
   Description: <textarea type="text" name="exercises[][description]"></textarea><br>
-  No. of Sets: <input type="number" name="exercises[][sets]"><br>
-  No. of Reps: <input type="number" name="exercises[][reps]"><br>
+  No. of Sets: <input type="number" name="exercises[][sets]"min=0><br>
+  No. of Reps: <input type="number" name="exercises[][reps]"min=0><br>
 
   <br>
   <input type="submit" value="Edit Exercise">

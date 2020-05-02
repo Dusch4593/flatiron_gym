@@ -4,8 +4,8 @@
 
 <h3>Enter Routine Information</h3>
 <form action="/routines" method="POST">
-  Name: <input type="text" name="name"><br>
-  How Many Times Per Week? <input type="number" name="times_per_week"><br>
+  Name: <input type="text" name="name" required><br>
+  How Many Times Per Week? <input type="number" name="times_per_week" min=0><br>
   <br>
 
   <h3>Enter Exercise Information</h3>
@@ -23,8 +23,8 @@
   Name: <input type="text" name="exercises[][name]"><br>
   Exercise Type: <input type="text" name="exercises[][exercise_type]"><br>
   Description: <textarea type="text" name="exercises[][description]"></textarea><br>
-  No. of Sets: <input type="number" name="exercises[][sets]"><br>
-  No. of Reps: <input type="number" name="exercises[][reps]"><br>
+  No. of Sets: <input type="number" name="exercises[][sets]" min=0><br>
+  No. of Reps: <input type="number" name="exercises[][reps]" min=0><br>
 
   <br>
 
