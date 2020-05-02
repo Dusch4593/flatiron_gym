@@ -62,13 +62,17 @@ class RoutinesController < ApplicationController
                                  description: params[:exercises].first[:description],
                                  sets: params[:exercises].first[:sets],
                                  reps: params[:exercises].first[:reps])
+    if @new_exercise.save
+      @routine.exercises << @new_exercise
+    end
     params.delete("_method")
-    if (params.include?(:exercise_ids) || @new_exercise.save) &&
+    if params.include?(:exercise_ids) &&
         @routine.update(name: params[:name], times_per_week: params[:times_per_week])
       params[:exercise_ids].each do |exercise_id|
         @exercise = Exercise.find_by_id(exercise_id)
         @routine.exercises << @exercise
       end
+      binding.pry
       redirect "/routines/#{@routine.id}"
     else
       redirect "/routines/#{@routine.id}/edit"
