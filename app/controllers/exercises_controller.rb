@@ -29,10 +29,8 @@ class ExercisesController < ApplicationController
   delete '/exercises/:id' do
     if is_logged_in?
       @exercise = Exercise.find_by_id(params[:id])
-      binding.pry
       @routine = Routine.find_by_id(@exercise.routine_id)
       @exercise.destroy
-      #binding.pry
       redirect "/routines/#{@routine.id}"
     else
       redirect '/login'

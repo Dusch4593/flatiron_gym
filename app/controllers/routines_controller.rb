@@ -72,7 +72,6 @@ class RoutinesController < ApplicationController
         @exercise = Exercise.find_by_id(exercise_id)
         @routine.exercises << @exercise
       end
-      binding.pry
       redirect "/routines/#{@routine.id}"
     else
       redirect "/routines/#{@routine.id}/edit"
