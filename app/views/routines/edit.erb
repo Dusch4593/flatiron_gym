@@ -1,4 +1,4 @@
-<a href="/users/home">Home</a> > <a href="/routines">Routines</a> > <a href="/routines/<%= @routine.id %>"><%= @routine.name %></a> > Edit
+new_exercise<a href="/users/home">Home</a> > <a href="/routines">Routines</a> > <a href="/routines/<%= @routine.id %>"><%= @routine.name %></a> > Edit
 
 <h1>Edit Routine</h1>
 
@@ -19,11 +19,11 @@
 
   <br>
   ...and/or Create a New Exercise <br>
-  Name: <input type="text" name="exercises[][name]"><br>
-  Exercise Type: <input type="text" name="exercises[][exercise_type]"><br>
-  Description: <textarea type="text" name="exercises[][description]"></textarea><br>
-  No. of Sets: <input type="number" name="exercises[][sets]"min=0><br>
-  No. of Reps: <input type="number" name="exercises[][reps]"min=0><br>
+  Name: <input type="text" name="new_exercise[][name]"><br>
+  Exercise Type: <input type="text" name="new_exercise[][exercise_type]"><br>
+  Description: <textarea type="text" name="new_exercise[][description]"></textarea><br>
+  No. of Sets: <input type="number" name="new_exercise[][sets]"min=0><br>
+  No. of Reps: <input type="number" name="new_exercise[][reps]"min=0><br>
 
   <br>
   <input type="submit" value="Edit Routine">

@@ -18,11 +18,11 @@ class RoutinesController < ApplicationController
 
   post '/routines' do
     @routine = current_user.routines.build(name: params[:name], times_per_week: params[:times_per_week])
-    @new_exercise = @routine.exercises.build(name: params[:exercises].first[:name],
-                                 exercise_type: params[:exercises].first[:exercise_type],
-                                 description: params[:exercises].first[:description],
-                                 sets: params[:exercises].first[:sets],
-                                 reps: params[:exercises].first[:reps])
+    @new_exercise = @routine.exercises.build(name: params[:new_exercise].first[:name],
+                                 exercise_type: params[:new_exercise].first[:exercise_type],
+                                 description: params[:new_exercise].first[:description],
+                                 sets: params[:new_exercise].first[:sets],
+                                 reps: params[:new_exercise].first[:reps])
 
     if (!params[:exercise_ids].nil? || @new_exercise.save) && @routine.save
       params[:exercise_ids].each do |exercise_id|
@@ -31,7 +31,6 @@ class RoutinesController < ApplicationController
       end if !params[:exercise_ids].nil?
       redirect '/routines'
     else
-      binding.pry
       redirect '/routines/new'
     end
   end
