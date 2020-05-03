@@ -11,6 +11,9 @@
   <a href="/exercises/<%= exercise.id %>"><%= exercise.name %></a><br>
 <% end %>
 
+<% if @routine.exercises.empty? %>
+  <strong>No Exercises Yet! Edit the Routine to Add an Exercise!</strong>
+<% end %>
 
 <br>
 
