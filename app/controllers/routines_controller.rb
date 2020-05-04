@@ -9,9 +9,12 @@ class RoutinesController < ApplicationController
   end
 
   get '/routines/new' do
-    @exercises = Exercise.all
-
-    erb :"routines/new"
+    if is_logged_in?
+      @exercises = Exercise.all
+      erb :"routines/new"
+    else
+      redirect '/login'
+    end
   end
 
   post '/routines' do
@@ -44,9 +47,13 @@ class RoutinesController < ApplicationController
   end
 
   get '/routines/:id' do
-    @routine = Routine.find_by_id(params[:id])
-    @exercises = @routine.exercises
-    erb :"routines/show"
+    if is_logged_in?
+      @routine = Routine.find_by_id(params[:id])
+      @exercises = @routine.exercises
+      erb :"routines/show"
+    else
+      redirect '/login'
+    end
   end
 
   get '/routines/:id/edit' do
@@ -81,7 +88,7 @@ class RoutinesController < ApplicationController
                                    reps: params[:new_exercise].first[:reps])
 
       @new_exercise.valid? ? @new_exercise.save : @routine.exercises.each { |exercise| @routine.exercises.destroy(exercise) if !exercise.valid? }
-      
+
       redirect "/routines/#{@routine.id}"
     else
       redirect "/routines/#{@routine.id}/edit"

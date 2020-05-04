@@ -10,9 +10,13 @@ class ExercisesController < ApplicationController
   end
 
   get '/exercises/:id/edit' do
-    @exercise = Exercise.find_by_id(params[:id])
-    @routine = Routine.find_by_id(@exercise.routine_id)
-    erb :"exercises/edit"
+    if is_logged_in?
+      @exercise = Exercise.find_by_id(params[:id])
+      @routine = Routine.find_by_id(@exercise.routine_id)
+      erb :"exercises/edit"
+    else
+      redirect '/login'
+    end
   end
 
   patch '/exercises/:id' do
@@ -27,13 +31,9 @@ class ExercisesController < ApplicationController
   end
 
   delete '/exercises/:id' do
-    if is_logged_in?
       @exercise = Exercise.find_by_id(params[:id])
       @routine = Routine.find_by_id(@exercise.routine_id)
       @exercise.destroy
       redirect "/routines/#{@routine.id}"
-    else
-      redirect '/login'
-    end
   end
 end
