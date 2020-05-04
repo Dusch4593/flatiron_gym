@@ -126,6 +126,39 @@ form {
 
 /* CUSTOM CLASS AND IDS */
 
+/* WELCOME PAGE */
+#welcome_container {
+  text-align: center;
+}
+
+#welcome_page_options {
+  display: inline-grid;
+}
+
+#login_link {
+  background-color: cyan;
+  margin: 0.15em;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  text-decoration: none;
+  color: #e0115f;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+
+#signup_link {
+  background-color: #e0115f;
+  margin: 0.15em;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  text-decoration: none;
+  color: cyan;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+
 /* LOGIN PAGE */
 #login_form {
   display: block;
@@ -142,6 +175,11 @@ form {
   text-align: left;
   margin: 0.75em;
   vertical-align: middle;
+}
+
+/* SIGNUP PAGE */
+#signup_container {
+  text-align: center;
 }
 
 

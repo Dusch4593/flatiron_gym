@@ -1,8 +1,12 @@
- <h1>New User Sign Up</h1>
+<a href="/">Welcome Page</a>
+<br>
+<div id="signup_container">
+  <h1>New User Sign Up</h1>
 
-<form action="/users" method="POST">
-  Name: <input type="text" name="name" required><br>
-  Email: <input type="email" name="email" required><br>
-  Password: <input type="password" name="password" required><br>
-  <input type="submit" value="Sign Up!">
-</form>
+ <form action="/users" method="POST">
+   <label for="name" class="form_content_left"><strong>Name: </strong></label><input class="form_content_right" ype="text" name="name" placeholder="Enter new name" required><br>
+   <label for="email" class="form_content_left"><strong>Email: </strong></label><input class="form_content_right" ype="email" name="email" placeholder="Enter new email" required><br>
+   <label for="password" class="form_content_left"><strong>Password: </strong></label><input class="form_content_right" ype="password" name="password" placeholder="Enter new password" required><br>
+   <input type="submit" value="Sign Up!">
+ </form>
+</div>
