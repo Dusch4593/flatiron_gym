@@ -1,4 +1,9 @@
-<h1>Welcome, <%= current_user.name %>!</h1>
-<a href="/routines">View Routines</a>  <a href="/routines/new">Create Routine</a>
-<br>
-<a href="/logout">Log out</a><br>
+<div id="home_page">
+  <h1>Welcome, <%= current_user.name %>!</h1>
+  <div id="home_page_options">
+    <a id="view_routines" href="/routines">View Routines</a>
+    <a class="create_routine" href="/routines/new">Create Routine</a>
+    <br>
+    <a  href="/logout"><strong>Log out</strong></a><br>
+  </div>
+</div>

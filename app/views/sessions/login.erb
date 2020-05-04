@@ -1,9 +1,17 @@
-<h1>Login</h1>
+<div id="login_form_container">
+  <h1>Login</h1>
 
-<p>Don't have an account? <a href="/signup">Sign Up!</a></p>
+  <p>Don't have an account? <a href="/signup">Sign Up!</a></p>
 
-<form action="/sessions" method="POST">
-  Email: <input type="email" name="email" required><br>
-  Password: <input type="password" name="password" required><br>
-  <input type="submit" value="Log In!">
-</form>
+  <form id="login_form" action="/sessions" method="POST">
+    <section class="form_row">
+      <label class="form_content_left" for="email"><strong>Email:</strong></label><input class="form_content_right" type="email" name="email" required><br>
+    </section>
+
+    <section class="form_row">
+      <label class="form_content_left" for="password"><strong>Password:</strong></label><input class="form_content_right" type="password" name="password" required><br>
+    </section>
+    <input type="submit" value="Log In!">
+  </form>
+
+</div>

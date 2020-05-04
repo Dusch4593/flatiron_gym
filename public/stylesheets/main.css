@@ -13,17 +13,20 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: #6666FF;
     color: #333;
-    font-family: Sans-Serif;
+    font-family: brandon-grotesque, sans-serif;
+    font-style: normal;
+    font-weight: 100;
     line-height: 18px;
   }
 
   .wrapper {
-    background: #fff;
+    background: #ffc324;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
+    border-radius: 0.5em;
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
@@ -80,7 +83,13 @@
     border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
+    text-align: center;
   }
+}
+
+form {
+  display: block;
+  margin: auto;
 }
 
 @media screen and (max-width: 600px) {
@@ -112,4 +121,51 @@
     font-size: 18px;
     line-height: 24px;
   }
+}
+
+
+/* CUSTOM CLASS AND IDS */
+#login_form {
+  display: block;
+}
+
+.form_content_left {
+  display: inline-block;
+  width: 15%;
+}
+
+.form_content_right {
+  display: inline-block;
+  width: 35%;
+  text-align: left;
+}
+
+#home_page {
+  text-align: center;
+}
+
+#home_page_options {
+  display: inline-grid;
+}
+
+#view_routines {
+  background-color: #e0115f;
+  margin: 0.25em;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  text-decoration: none;
+  color: cyan;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+.create_routine {
+  background-color: cyan;
+  margin: 0.25em;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  text-decoration: none;
+  color: #e0115f;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
 }
