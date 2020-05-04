@@ -7,9 +7,9 @@
 <% end %>
 
 <% @routines.each do |routine| %>
-  <a href="/routines/<%= routine.id %>"><%= routine.name %></a><br>
+  <a href="/routines/<%= routine.id %>"><strong><%= routine.name %></strong></a><br>
 <% end %>
 
 <br>
 
-<a href="/routines/new">Create Routine</a>
+<a class="create_routine" href="/routines/new">Create Routine</a>

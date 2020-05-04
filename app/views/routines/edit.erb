@@ -1,11 +1,11 @@
-new_exercise<a href="/users/home">Home</a> > <a href="/routines">Routines</a> > <a href="/routines/<%= @routine.id %>"><%= @routine.name %></a> > Edit
+<a href="/users/home">Home</a> > <a href="/routines">Routines</a> > <a href="/routines/<%= @routine.id %>"><%= @routine.name %></a> > Edit
 
 <h1>Edit Routine</h1>
 
 <form action="/routines/<%= @routine.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  Name: <input type="text" name="name" value="<%= @routine.name %>" required><br>
-  Times per Week: <input type="number" name="times_per_week" value="<%= @routine.times_per_week %>" min=0><br>
+  <label for="name" class="form_content_left">Name: </label><input type="text" name="name" value="<%= @routine.name %>" required><br>
+  <label for="times_per_week" class="form_content_left">Times per Week: </label><input type="number" name="times_per_week" value="<%= @routine.times_per_week %>" min=0><br>
 
   <h3>Edit Exercise Information</h3>
   Add an Existing Exercise?
@@ -19,12 +19,12 @@ new_exercise<a href="/users/home">Home</a> > <a href="/routines">Routines</a> > 
 
   <br>
   ...and/or Create a New Exercise <br>
-  Name: <input type="text" name="new_exercise[][name]"><br>
-  Exercise Type: <input type="text" name="new_exercise[][exercise_type]"><br>
-  Description: <textarea type="text" name="new_exercise[][description]"></textarea><br>
-  No. of Sets: <input type="number" name="new_exercise[][sets]"min=0><br>
-  No. of Reps: <input type="number" name="new_exercise[][reps]"min=0><br>
+  <label for="name" class="form_content_left">Name: </label><input type="text" name="new_exercise[][name]" placeholder="Exercise name"><br>
+  <label for="exercise_type" class="form_content_left">Exercise Type: </label><input type="text" name="new_exercise[][exercise_type]" placeholder="Exercise type"><br>
+  <label for="description" class="form_content_left">Description: </label><textarea type="text" name="new_exercise[][description]" placeholder="Description of the exercise"></textarea><br>
+  <label for="sets" class="form_content_left">No. of Sets: </label><input type="number" name="new_exercise[][sets]"min=0 placeholder="Number of sets"><br>
+  <label for="reps" class="form_content_left">No. of Reps: </label><input type="number" name="new_exercise[][reps]"min=0 placeholder="Number of reps"><br>
 
   <br>
-  <input type="submit" value="Edit Routine">
+  <input class="edit_button" type="submit" value="Edit Routine">
 </form>

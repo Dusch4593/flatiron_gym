@@ -9,10 +9,12 @@
 <strong>Reps: </strong><%= @exercise.reps %> <br>
 
 
-<a href="/exercises/<%= @exercise.id %>/edit">Edit Exercise</a>
+<div class="crud_options">
+  <a class="edit_button" href="/exercises/<%= @exercise.id %>/edit">Edit Exercise</a>
 
 
-<form action="/exercises/<%= @exercise.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Exercise">
-</form>
+  <form action="/exercises/<%= @exercise.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input class="delete_button" type="submit" value="Delete Exercise">
+  </form>
+</div>

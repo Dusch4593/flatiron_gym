@@ -8,7 +8,7 @@
 
 <h3>List of Exercises</h3>
 <% @exercises.each do |exercise| %>
-  <a href="/exercises/<%= exercise.id %>"><%= exercise.name %></a><br>
+  <a style="margin-top: 0.15em;" href="/exercises/<%= exercise.id %>"><strong><%= exercise.name %></strong></a><br>
 <% end %>
 
 <% if @routine.exercises.empty? %>
@@ -17,10 +17,12 @@
 
 <br>
 
-<a href="/routines/<%= @routine.id %>/edit">Edit Routine</a>
+<div class="crud_options">
+  <a class="edit_button" href="/routines/<%= @routine.id %>/edit">Edit Routine</a>
 
 
-<form action="/routines/<%= @routine.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Routine">
-</form>
+  <form action="/routines/<%= @routine.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input class="delete_button" type="submit" value="Delete Routine">
+  </form>
+</div>

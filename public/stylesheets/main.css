@@ -167,6 +167,9 @@ form {
 .form_content_left {
   display: inline-block;
   width: 15%;
+  margin-bottom: 0.5em;
+    vertical-align: middle;
+    font-weight: bold;
 }
 
 .form_content_right {
@@ -175,6 +178,7 @@ form {
   text-align: left;
   margin: 0.75em;
   vertical-align: middle;
+  font-weight: bold;
 }
 
 /* SIGNUP PAGE */
@@ -212,10 +216,41 @@ form {
   color: #e0115f;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,.3);
+  cursor: pointer;
 }
 
 
 /* NEW ROUTINE PAGE */
 #new_routine_container {
   margin: auto;
+}
+
+
+.crud_options {
+  display: inline-grid;
+}
+
+.edit_button {
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.9em;
+  border-radius: 0.25em;
+  padding: 1em;
+  margin-top: 1em;
+  font-family: system-ui;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  cursor: pointer;
+}
+
+.delete_button {
+  background-color: red;
+  color: white;
+  padding: 1em;
+  font-size: 0.9em;
+  border-radius: 0.25em;
+  margin-top: 1em;
+  box-shadow: 0 0 5px rgba(0,0,0,.3);
+  cursor: pointer;
 }
