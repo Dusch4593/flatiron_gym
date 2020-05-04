@@ -3,4 +3,5 @@ class Routine < ActiveRecord::Base
   has_many :exercises
 
   validates :name, presence: true
+  validates_associated :exercises
 end

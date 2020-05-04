@@ -10,26 +10,33 @@ class RoutinesController < ApplicationController
 
   get '/routines/new' do
     @exercises = Exercise.all
-    @exercises = @exercises.each { |e| e.name.downcase.strip }
-                           .uniq! { |e| e.name }
-                           .each { |e| e.name.capitalize! }
+
     erb :"routines/new"
   end
 
   post '/routines' do
     @routine = current_user.routines.build(name: params[:name], times_per_week: params[:times_per_week])
+
+
+
     @new_exercise = @routine.exercises.build(name: params[:new_exercise].first[:name],
                                  exercise_type: params[:new_exercise].first[:exercise_type],
                                  description: params[:new_exercise].first[:description],
                                  sets: params[:new_exercise].first[:sets],
                                  reps: params[:new_exercise].first[:reps])
 
+    @new_exercise.valid? ? @new_exercise.save : @routine.exercises.each { |exercise| @routine.exercises.destroy(exercise) if exercise.invalid? }
 
-    if (!params[:exercise_ids].nil? || @new_exercise.save) && @routine.save
+
+
+    if params.include?(:exercise_ids)
       params[:exercise_ids].each do |exercise_id|
         @exercise = Exercise.find_by_id(exercise_id)
         @routine.exercises << @exercise
-      end if !params[:exercise_ids].nil?
+      end
+    end
+
+    if @routine.save && @routine.exercises.count > 0
       redirect '/routines'
     else
       redirect '/routines/new'
@@ -74,7 +81,7 @@ class RoutinesController < ApplicationController
                                    reps: params[:new_exercise].first[:reps])
 
       @new_exercise.valid? ? @new_exercise.save : @routine.exercises.each { |exercise| @routine.exercises.destroy(exercise) if !exercise.valid? }
-      binding.pry
+      
       redirect "/routines/#{@routine.id}"
     else
       redirect "/routines/#{@routine.id}/edit"
