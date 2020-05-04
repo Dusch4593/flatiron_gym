@@ -125,6 +125,8 @@ form {
 
 
 /* CUSTOM CLASS AND IDS */
+
+/* LOGIN PAGE */
 #login_form {
   display: block;
 }
@@ -138,8 +140,12 @@ form {
   display: inline-block;
   width: 35%;
   text-align: left;
+  margin: 0.75em;
+  vertical-align: middle;
 }
 
+
+/* HOME PAGE */
 #home_page {
   text-align: center;
 }
@@ -168,4 +174,10 @@ form {
   color: #e0115f;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+
+/* NEW ROUTINE PAGE */
+#new_routine_container {
+  margin: auto;
 }
