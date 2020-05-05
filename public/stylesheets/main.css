@@ -135,7 +135,7 @@ form {
   display: inline-grid;
 }
 
-#login_link {
+.login_link {
   background-color: #6666FF;
   margin: 0.15em;
   padding: 0.5em;
@@ -144,11 +144,12 @@ form {
   color: #ffc324;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,.3);
+  cursor: pointer;
 }
 
 
-#signup_link {
-  background-color: ##6666FF;
+.signup_link {
+  background-color: #6666FF;
   margin: 0.15em;
   padding: 0.5em;
   border-radius: 0.25em;
@@ -156,6 +157,19 @@ form {
   color: #ffc324;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,.3);
+  cursor: pointer;
+}
+
+#logout_link {
+  background-color: #6666FF;
+  margin: 0.15em;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  text-decoration: none;
+  color: #ffc324;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  cursor: pointer;
 }
 
 
