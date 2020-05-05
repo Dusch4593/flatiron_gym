@@ -1,5 +1,4 @@
-# Welcome to the Flatiron Gym!
-
+![image of site welcome page](./public/images/welcome_page.png)
 This is a simple Sinatra web app that lets a user log in to(or sign up for)  
 their account and create exercise routines.
 

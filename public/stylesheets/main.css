@@ -136,24 +136,24 @@ form {
 }
 
 #login_link {
-  background-color: cyan;
+  background-color: #6666FF;
   margin: 0.15em;
   padding: 0.5em;
   border-radius: 0.25em;
   text-decoration: none;
-  color: #e0115f;
+  color: #ffc324;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,.3);
 }
 
 
 #signup_link {
-  background-color: #e0115f;
+  background-color: ##6666FF;
   margin: 0.15em;
   padding: 0.5em;
   border-radius: 0.25em;
   text-decoration: none;
-  color: cyan;
+  color: #ffc324;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,.3);
 }
@@ -197,23 +197,23 @@ form {
 }
 
 #view_routines {
-  background-color: #e0115f;
+  background-color: #6666FF;
   margin: 0.25em;
   padding: 0.5em;
   border-radius: 0.25em;
   text-decoration: none;
-  color: cyan;
+  color: #ffc324;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,.3);
 }
 
 .create_routine {
-  background-color: cyan;
+  background-color: #6666FF;
   margin: 0.25em;
   padding: 0.5em;
   border-radius: 0.25em;
   text-decoration: none;
-  color: #e0115f;
+  color: #ffc324;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,.3);
   cursor: pointer;
@@ -231,8 +231,8 @@ form {
 }
 
 .edit_button {
-  background-color: blue;
-  color: white;
+  background-color: #6666FF;
+  color: #ffc324;
   text-decoration: none;
   text-align: center;
   font-size: 0.9em;
