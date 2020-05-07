@@ -43,7 +43,7 @@ class ExercisesController < ApplicationController
   get '/exercises/:id/edit' do
     if is_logged_in?
       @exercise = Exercise.find_by_id(params[:id])
-      erb :edit
+      erb :"exercises/edit"
     else
       redirect '/login'
     end
@@ -62,6 +62,6 @@ class ExercisesController < ApplicationController
   delete '/exercises/:id' do
       @exercise = Exercise.find_by_id(params[:id])
       @exercise.destroy
-      erb :"exercises/index"
+      redirect '/exercises'
   end
 end
