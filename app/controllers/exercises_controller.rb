@@ -8,6 +8,14 @@ class ExercisesController < ApplicationController
     end
   end
 
+  get '/exercises/new' do
+    if is_logged_in?
+      erb :"exercises/new"
+    else
+      redirect '/login'
+    end
+  end
+
   post '/exercises' do
     binding.pry
   end
