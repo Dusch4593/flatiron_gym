@@ -1,9 +1,20 @@
 class ExercisesController < ApplicationController
+  get '/exercises' do
+    if is_logged_in?
+      @exercises = current_user.exercises
+      erb :"exercises/index"
+    else
+      redirect '/login'
+    end
+  end
+
+  post '/exercises' do
+    binding.pry
+  end
+
   get '/exercises/:id' do
     if is_logged_in?
       @exercise = Exercise.find_by_id(params[:id])
-      @routine_exercise = RoutineExercise.find_by_id(@exercise.id)
-      @routine = Routine.find_by_id(@routine_exercise.routine_id)
       erb :"exercises/show"
     else
       redirect '/login'
@@ -13,9 +24,7 @@ class ExercisesController < ApplicationController
   get '/exercises/:id/edit' do
     if is_logged_in?
       @exercise = Exercise.find_by_id(params[:id])
-      @routine_exercise = RoutineExercise.find_by_id(@exercise.id)
-      @routine = Routine.find_by_id(@routine_exercise.routine_id)
-      erb :"exercises/edit"
+      erb :edit
     else
       redirect '/login'
     end
@@ -23,10 +32,8 @@ class ExercisesController < ApplicationController
 
   patch '/exercises/:id' do
     @exercise = Exercise.find_by_id(params[:id])
-    @routine_exercise = RoutineExercise.find_by_id(@exercise.id)
-    @routine = Routine.find_by_id(@routine_exercise.routine_id)
     params.delete("_method")
-    if current_user.id == @routine.user_id && @exercise.update(name: params[:name], exercise_type: params[:exercise_type], description: params[:description], sets: params[:sets], reps: params[:reps])
+    if current_user.id == @exercise.user_id && @exercise.update(name: params[:name], exercise_type: params[:exercise_type], times_per_week: params[:times_per_week], description: params[:description], sets: params[:sets], reps: params[:reps])
       redirect "/exercises/#{@exercise.id}"
     else
       redirect "/exercises/#{@exercise.id}"
@@ -35,9 +42,7 @@ class ExercisesController < ApplicationController
 
   delete '/exercises/:id' do
       @exercise = Exercise.find_by_id(params[:id])
-      @routine_exercise = RoutineExercise.find_by_id(@exercise.id)
-      @routine = Routine.find_by_id(@routine_exercise.routine_id)
       @exercise.destroy
-      redirect "/routines/#{@routine.id}"
+      erb :"exercises/index"
   end
 end
