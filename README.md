@@ -15,13 +15,11 @@ and a unique email address.
 
 
 # Usage
-Users can have many Routines and their Routines may have many Exercises. In turn,  
-Exercises belong to Routines, which belong to Users. A user can create, view,  
-edit and delete routines as well as perform the same functions on a routine's  
-exercises.
+Users can have many Exercises. In turn, Exercises belong to Users. A user can
+create, view, edit and delete exercises.
 
-Users will not have access to the Routines and Exercises of another User. This  
-is an effort to prevent accidental overwriting of data or nefarious activity.
+Users will not have access to the Exercises of another User. This is an effort
+to prevent accidental overwriting of data or nefarious activity.
 
 # Contributing
 Any and all suggesting are welcome! Please feel free to [submit a pull-request](https://github.com/Dusch4593/flatiron_gym/pulls)  
