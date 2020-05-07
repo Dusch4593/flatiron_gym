@@ -1,6 +1,5 @@
 class Exercise < ActiveRecord::Base
-  belongs_to :routine_exercises
-  has_many :routines, through: :routine_exercises
+  belongs_to :user
 
   validates :name, :sets, :reps, presence: true
   validates :name, uniqueness: true
