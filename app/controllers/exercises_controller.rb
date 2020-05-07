@@ -17,7 +17,18 @@ class ExercisesController < ApplicationController
   end
 
   post '/exercises' do
-    binding.pry
+    @new_exercise = current_user.exercises.build(name: params[:name], exercise_type: params[:exercise_type],
+                                                 times_per_week: params[:times_per_week], description: params[:description],
+                                                 sets: params[:sets], reps: params[:reps])
+
+    if @new_exercise.valid?
+      binding.pry
+      @new_exercise.save
+      redirect '/exercises'
+    else
+      binding.pry
+      redirect '/exercises/new'
+    end
   end
 
   get '/exercises/:id' do

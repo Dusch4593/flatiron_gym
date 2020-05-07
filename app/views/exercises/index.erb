@@ -1,0 +1,7 @@
+<h1>Exercises for <%= current_user.name %></h1>
+
+<% @exercises.each do |exercise| %>
+  <strong><a href="/exercises/<%= exercise.id %>"><%= exercise.name %></a></strong><br>
+<% end %>
+
+<h3><a href="/exercises/new">Add New Exercise</a></h3>
