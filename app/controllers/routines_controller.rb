@@ -1,7 +1,10 @@
 class RoutinesController < ApplicationController
   get '/routines' do
     if is_logged_in?
+
       @routines = current_user.routines
+      @exercises = Exercise.all
+
       erb :"routines/index"
     else
       redirect '/login'
@@ -40,6 +43,16 @@ class RoutinesController < ApplicationController
     end
 
     if @routine.save && @routine.exercises.count > 0
+      if params.include?(:exercise_ids)
+        params[:exercise_ids].each do |exercise_id|
+          @routine_exercise = RoutineExercise.create(routine_id: @routine.id, exercise_id: exercise_id)
+
+        end
+      elsif @new_exercise.id
+        @routine_exercise = RoutineExercise.create(routine_id: @routine.id, exercise_id: @new_exercise.id)
+
+      end
+      @routine.exercises.uniq!
       redirect '/routines'
     else
       redirect '/routines/new'
@@ -49,7 +62,7 @@ class RoutinesController < ApplicationController
   get '/routines/:id' do
     if is_logged_in?
       @routine = Routine.find_by_id(params[:id])
-      @exercises = @routine.exercises
+      @exercises = @routine.exercises.uniq
       erb :"routines/show"
     else
       redirect '/login'
@@ -60,7 +73,6 @@ class RoutinesController < ApplicationController
     if is_logged_in?
       @routine = Routine.find_by_id(params[:id])
       @exercises = Exercise.all
-
       erb :"routines/edit"
     else
       redirect '/login'
@@ -76,6 +88,7 @@ class RoutinesController < ApplicationController
 
       @routine.exercises = []
 
+
       params[:exercise_ids].each do |exercise_id|
         @exercise = Exercise.find_by_id(exercise_id)
         @routine.exercises << @exercise
@@ -89,6 +102,13 @@ class RoutinesController < ApplicationController
 
       @new_exercise.valid? ? @new_exercise.save : @routine.exercises.each { |exercise| @routine.exercises.destroy(exercise) if !exercise.valid? }
 
+      if params.include?(:exercise_ids)
+        params[:exercise_ids].each do |exercise_id|
+          @routine_exercise = RoutineExercise.create(routine_id: @routine.id, exercise_id: exercise_id)
+        end
+      elsif @new_exercise.id
+        @routine_exercise = RoutineExercise.create(routine_id: @routine.id, exercise_id: @new_exercise.id)
+      end
       redirect "/routines/#{@routine.id}"
     else
       redirect "/routines/#{@routine.id}/edit"
