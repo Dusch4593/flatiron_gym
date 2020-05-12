@@ -210,7 +210,7 @@ form {
   display: inline-grid;
 }
 
-#view_routines {
+#view_exercises {
   background-color: #6666FF;
   margin: 0.25em;
   padding: 0.5em;
@@ -221,7 +221,7 @@ form {
   box-shadow: 0 0 10px rgba(0,0,0,.3);
 }
 
-.create_routine {
+.create_exercise {
   background-color: #6666FF;
   margin: 0.25em;
   padding: 0.5em;

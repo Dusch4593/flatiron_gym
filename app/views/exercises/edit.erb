@@ -4,10 +4,11 @@
 
 <form action="/exercises/<%= @exercise.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  Name: <input type="text" name="name" value="<%= @exercise.name %>" required><br>
-  Exercise Type: <input type="text" name="exercise_type" value="<%= @exercise.exercise_type %>"><br>
-  Description: <input name="description" value="<%= @exercise.description %>"> <br>
-  Sets: <input type="number" name="sets" value="<%= @exercise.sets %>"min=0><br>
-  Reps: <input type="number" name="reps" value="<%= @exercise.reps %>"min=0><br>
+  <label class="form_content_left" for="name">Name: </label><input type="text" name="name" value="<%= @exercise.name %>" required><br>
+  <label class="form_content_left" for="times_per_week">Times per Week: </label><input type="number" name="times_per_week" value="<%= @exercise.times_per_week %>" min=0><br>
+  <label class="form_content_left" for="exercise_type">Exercise Type: </label><input type="text" name="exercise_type" value="<%= @exercise.exercise_type %>"><br>
+  <label class="form_content_left" for="description">Description: </label><input name="description" value="<%= @exercise.description %>"> <br>
+  <label class="form_content_left" for="sets">Sets: </label><input type="number" name="sets" value="<%= @exercise.sets %>"min=0><br>
+  <label class="form_content_left" for="reps">Reps: </label><input type="number" name="reps" value="<%= @exercise.reps %>"min=0><br>
   <input class="edit_button" type="submit" value="Edit Exercise">
 </form>
